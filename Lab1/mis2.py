@@ -23,7 +23,7 @@ def showMovie(MODE,WIDTH,HEIGHT,COLOR,FLIP):
             break
 
 if __name__ == '__main__':
-    #showMovie(cv2.CAP_ANY,None,None,cv2.COLOR_BGRA2GRAY,False)
-    #showMovie(cv2.CAP_ANY, 640, 480,None,False)
-    #showMovie(cv2.CAP_ANY, 640, 480, None, True)
+    showMovie(cv2.CAP_ANY,None,None,cv2.COLOR_BGRA2GRAY,False)
+    showMovie(cv2.CAP_ANY, 640, 480,None,False)
+    showMovie(cv2.CAP_ANY, 640, 480, None, True)
     showMovie(cv2.CAP_ANY, None, None, cv2.COLOR_BGR2HSV, False)

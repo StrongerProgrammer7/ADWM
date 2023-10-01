@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
         if not ret:
             break
-
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
         cv2.imshow('IP Webcam Video', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
