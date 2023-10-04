@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+
+/Lab4/cpp/cv/.vs/*
+.idea/*
+movies/*
+imgs/*
+Lab4/cpp/cv/Debug/*
