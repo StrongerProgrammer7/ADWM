@@ -49,14 +49,14 @@ def hysteresis_thresholding(nms,low_border,hight_border):
     rows,cols = nms.shape
     result = np.zeros_like(nms)
 
-    weak_pixels = 25
+    weak_pixels = 20
 
     strong_i,strong_j = np.where(nms >= hight_border)
     zeros_i,zeros_j = np.where(nms < low_border)
 
     result[strong_i,strong_j] = 255
     for i,j in zip(zeros_i,zeros_j):
-        if np.any(nms[i-1:i+2,j-1:j+2] >= hight_border):
+        if np.any(nms[i-1:i+1,j-1:j+1] >= hight_border):
             result[i,j] = 255
         else:
             result[i,j] = weak_pixels
@@ -78,6 +78,7 @@ if __name__ == '__main__':
     img = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
     img = cv2.GaussianBlur(img, (13, 13), 0.2)
 
+    #cv2.imshow("Blur",img)
 
     calc_grad_x = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=3)
     calc_grad_y = cv2.Sobel(img,cv2.CV_64F,0,1,ksize=3)
@@ -89,6 +90,7 @@ if __name__ == '__main__':
     #print(grad_angle)
 
     nms = non_max_suppression(grad_len,grad_angle)
+   # cv2.imshow('NMS',nms)
 
     while (1):
         if cv2.waitKey(1) & 0xFF == 27:
