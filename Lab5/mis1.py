@@ -2,16 +2,16 @@ import cv2
 
 if __name__ == '__main__':
     input_video_path = '../movies/archive/main.mov'
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(input_video_path)
 
     if not cap.isOpened():
         print("error read movie")
         exit()
 
     output_video_path = '../movies/example.avi'
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Формат кодека видео
-    fps = int(cap.get(5))  # Кадров в секунду
-    frame_size = (int(cap.get(3)), int(cap.get(4)))  # Размер кадра
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    fps = int(cap.get(5))
+    frame_size = (int(cap.get(3)), int(cap.get(4)))
 
     # Создаем объект VideoWriter
     out = cv2.VideoWriter(output_video_path, fourcc, fps, frame_size,isColor=True)
@@ -21,10 +21,10 @@ if __name__ == '__main__':
         exit()
 
     kernelSize = (3,3)
-    sigma = 1.0
+    sigma = 0
     ret, frame = cap.read()
     frame_count = 0
-    max_area = 1000
+    max_area = 10
     if ret:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2GRAY)
         frame = cv2.GaussianBlur(frame, kernelSize, sigma)
@@ -48,8 +48,8 @@ if __name__ == '__main__':
             for cnt in contours:
                 if cv2.contourArea(cnt) > max_area:
                     out.write(frame)
-                    cv2.imshow('IP Webcam Video', frame)
-                    #cv2.imwrite(f'../movies/screen/motion_detected_{frame_count}.png', frame)
+                    #cv2.imshow('IP Webcam Video', frame)
+                    cv2.imwrite(f'../movies/screen/motion_detected_{frame_count}.png', frame)
                     frame_count +=1
                     break
             oldFrame = gray_frame

@@ -32,7 +32,9 @@ if __name__ == '__main__':
             center = (x,y)
             dArea = int(dArea)
             if(x>=0 and y >=0):
-                cv2.circle(frame, center, 5, (0,255,255), 1)
+                #cv2.circle(frame, center, 5, (0,255,255), 1)
+                cv2.line(frame, (x-15,y), (x + 15, y), (0, 255, 255), 2, 8, 0)
+                cv2.line(frame,(x,y-15),(x,y+15),(0,255,255),2,8,0)
                 x,y,w,h = cv2.boundingRect(img_g)
                 cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,0),thickness=2,lineType=8,shift=0)
 
