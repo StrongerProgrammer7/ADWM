@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaussian Blur in JavaScript</title>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <canvas id="canvas"></canvas>
+    <canvas id="src"></canvas>
+    <script>
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const srcCanvas = document.getElementById("src");
+        const srcCtx = srcCanvas.getContext('2d');
+        document.getElementById('imageInput').addEventListener('change', function(event) 
+        {
+            const input = event.target;
+            const file = input.files[0];
+            const img2 = new Image();            
+            const img = new Image();
+            img.onload = function() 
+            {
+                function grayScale(ctx,imgW,imgH)
+                {
+                    let imgTemp = ctx.getImageData(0, 0, imgW, imgH);
+                    for (var y = 0; y < imgTemp.height; y++){
+                        for(var x = 0; x < imgTemp.width; x++){
+                            var i = (y * 4) * imgTemp.width + x * 4;
+                            var avg = (imgTemp.data[i] + imgTemp.data[i + 1] + imgTemp.data[i + 2]) / 3;
+                            imgTemp.data[i] = avg; 
+                            imgTemp.data[i + 1] = avg; 
+                            imgTemp.data[i + 2] = avg;
+                        }
+                    }
+                    return imgTemp;//canvasContext.putImageData(imgTemp, 0, 0, 0, 0, imgTemp.width, imgTemp.height);
+                }
+                function getKernel(kernel_size,sigma,center)
+                {
+                    const kernel = new Array(kernel_size).fill().map(() => new Array(kernel_size).fill(0));
+
+
+                        for (let i = 0; i < kernel_size; i++) 
+                        {
+                            for (let j = 0; j < kernel_size; j++) 
+                            {
+                                const x = i - center;
+                                const y = j - center;
+
+                                kernel[i][j] = Math.exp(
+                                    -((x ** 2 - Math.ceil(kernel_size / 2)) + (y ** 2 - Math.ceil(kernel_size / 2))) / (2 * sigma ** 2)
+                                ) / (2 * Math.PI * sigma ** 2);
+                            }
+                        }
+                    return kernel;
+                }
+
+                function normilizeKernel(kernel)
+                {
+                    const kernelSum = kernel.reduce((acc, row) => acc + row.reduce((sum, value) => sum + value, 0), 0);
+                        for (let i = 0; i < kernel_size; i++) 
+                            for (let j = 0; j < kernel_size; j++) 
+                                kernel[i][j] /= kernelSum;
+                            
+                    return kernel;
+                }
+                canvas.width = 300;
+                canvas.height = 300;
+
+
+                ctx.drawImage(img, 0, 0, 300, 300);
+
+
+                const kernel_size = 23;
+
+
+                const sigma = 1.0;
+
+
+                const center = Math.floor(kernel_size / 2);
+
+
+                let kernel = getKernel(kernel_size,sigma,center);
+
+                kernel = normilizeKernel(kernel);
+
+                const imgData =  grayScale(ctx,canvas.width,canvas.height);
+                //const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const resultImageData = new ImageData(new Uint8ClampedArray(imgData.data), canvas.width, canvas.height);
+
+
+                for (let i = center; i < resultImageData.height - center; i++) 
+                {
+                    for (let j = center; j < resultImageData.width - center; j++)
+                    {
+                        let new_saturation = 0;
+
+                        for (let ky = -center; ky <= center; ky++) 
+                        {
+                            for (let kx = -center; kx <= center; kx++) 
+                            {
+                                const pixelIndex = ((i + ky) * resultImageData.width + (j + kx)) * 4;
+                                const kernelValue = kernel[ky + center][kx + center];
+
+                                new_saturation += resultImageData.data[pixelIndex + 1] * kernelValue; 
+                            }
+                        }
+
+                        const pixelIndex = (i * resultImageData.width + j) * 4;
+                        resultImageData.data[pixelIndex + 1] = Math.max(0, Math.min(255, new_saturation)); 
+                    }
+                }
+
+                ctx.putImageData(resultImageData, 0, 0);
+                srcCanvas.width = 300;
+                srcCanvas.height = 300;
+
+                
+                srcCtx.drawImage(img2, 0, 0, 300, 300);
+                let imgSRcGray = grayScale(ctx,srcCanvas.width,srcCanvas.height);
+                srcCtx.putImageData(imgSRcGray, 0, 0);
+               
+            };
+
+            const reader = new FileReader();
+            reader.onload = function() {
+                img.src = reader.result;
+                img2.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        });
+       
+
+        
+    </script>
+</body>
+</html>
