@@ -2,7 +2,7 @@
 
 AlgorithmCanni/cpp/cv/.vs
 AlgorithmCanni/cpp/cv/Debug
-AlgorithmCanni/cpp/cv/x64
+
 AlgorithmCanni/cpp/cv/cv.sln
 AlgorithmCanni/cpp/cv/cv.vcxproj
 AlgorithmCanni/cpp/cv/cv.vcxproj.filters
@@ -20,3 +20,4 @@ Detectros/Screenshot 2023-12-06 150229.png
 Detectros/Matlabl/SSD/resnet-50
 Detectros/Matlabl/SSD/ExtraData.mat
 Detectros/Matlabl/SSD/detector.mat
+/AlgorithmCanni/cpp/cv/x64/
