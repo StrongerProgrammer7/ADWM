@@ -3,17 +3,17 @@
 # ADWM (Algorithms of digital multimedia processing)
 ## Content:
  - Description:
-   - Introduction cv <a href="">jump</a>
-   - tracking red object <a href="">jump</a>
-   - Image blurring (GaussBlur) <a href="">jump</a>
-   - Canny algorithm <a href="">jump</a>
-   - Motion detection on video <a href="">jump</a>
-   - neural network training <a href="">jump</a>
-   - Haar's work (workKhaara) <a href="">jump</a>
-   - Text Recognition(opticalRecognationText) <a href="">jump</a>
-   - Contours (several different operators) <a href="">jump</a>
-   - Hand detectors (Detectros) **-(it's maybe interesting for HR)** <a href="">jump</a>
-   - Tracking (mil,csrt,kcf) and histogram-based color tracking **-(it's maybe interesting for HR)** <a href="">jump</a>
+   - Introduction cv <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#introduction-cv">jump</a>
+   - tracking red object <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#tracking-red-object">jump</a>
+   - Image blurring (GaussBlur) <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#image-blurring">jump</a>
+   - Canny algorithm <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#cannys-algorithm">jump</a>
+   - Motion detection on video <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#motion-detection-on-video">jump</a>
+   - neural network training <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#neural-network-training">jump</a>
+   - Haar's work (workKhaara) <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#work-khaara">jump</a>
+   - Text Recognition(opticalRecognationText) <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#text-recognitionopticalrecognationtext">jump</a>
+   - Contours (several different operators) **-(it's maybe interesting for HR)** <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#contours">jump</a>
+   - Tracking (mil,csrt,kcf) and histogram-based color tracking **-(it's maybe interesting for HR)** <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#tracking">jump</a>
+   - Hand detectors (Detectros) **-(it's maybe interesting for HR)** <a href="https://github.com/StrongerProgrammer7/ADWM?tab=readme-ov-file#detectors">jump</a>
 
 ## Briefly work
 This project is the first step in machine learning. 
@@ -49,7 +49,7 @@ Done work:
 <br><img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/20f87f7e-053f-4d01-b234-095fc06fbcd6" alt="" width="300"/>
 <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/41ffb369-2443-4b79-a67c-1db5d86a4fb5" alt="" width="300"/>
 
-### Image blurring 
+### Image blurring (Gauss blur)
 Done work: Realisation Gauss's filter and comparison with built-in Gauss's filter
 <br> <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/df7d9c23-2f2f-4db1-93f1-de0c374e0071" alt="" width="500"/>
 
@@ -173,4 +173,8 @@ https://github.com/StrongerProgrammer7/ADWM/assets/71569051/ed39cc1c-6385-416d-8
 
 https://github.com/StrongerProgrammer7/ADWM/assets/71569051/4eb1271d-d834-4f37-bea8-5850400548a6
 
+Record movie (length 39 sec) every algorithm
 
+| Haara + NN | SSD  | MediaPipe |  
+| ------------- |:-------------:| :-------------:|
+| 28 min | ~ 45 sec | ~ 40 sec | 
