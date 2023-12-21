@@ -1,17 +1,34 @@
+** This work is being done as part of the Course Algorithms of digital multimedia processing author Abuykoz Z.M.*
+
 # ADWM (Algorithms of digital multimedia processing)
 ## Content:
  - Description:
-   - Introduction cv
-   - tracking red object
-   - Image blurring (GaussBlur)
-   - Canny algorithm
-   - Motion detection on video
-   - neural network training
-   - Haar's work (workKhaara)
-   - Text Recognition(opticalRecognationText)
-   - Contours (several different operators)
-   - Hand detectors (Detectros) **-(it's maybe interesting for HR)**
-   - Tracking (mil,csrt,kcf) and histogram-based color tracking **-(it's maybe interesting for HR)**
+   - Introduction cv <a href="">jump</a>
+   - tracking red object <a href="">jump</a>
+   - Image blurring (GaussBlur) <a href="">jump</a>
+   - Canny algorithm <a href="">jump</a>
+   - Motion detection on video <a href="">jump</a>
+   - neural network training <a href="">jump</a>
+   - Haar's work (workKhaara) <a href="">jump</a>
+   - Text Recognition(opticalRecognationText) <a href="">jump</a>
+   - Contours (several different operators) <a href="">jump</a>
+   - Hand detectors (Detectros) **-(it's maybe interesting for HR)** <a href="">jump</a>
+   - Tracking (mil,csrt,kcf) and histogram-based color tracking **-(it's maybe interesting for HR)** <a href="">jump</a>
+
+## Briefly work
+This project is the first step in machine learning. 
+It will be especially useful for students of machine learning.
+**Only the last 3 jobs will be of interest to HR.**
+
+## Instruments 
+- Python 3.10
+- Matlab 2023b with extra packages
+  - image labeler
+  - Webcam
+  - resnet-50
+  - SSD
+- JS (for blur)
+- C++ (for canny)
 
 ### Introduction cv
 This folder include introduction with openCV. 
@@ -89,12 +106,34 @@ In total, 1 algorithm processed 27 images.
 | Prewitt | 237,085066713 | Prewitt & Scharr | 7995.047592230903 |
 | Kirsch | 1122,984922 | 
 
+### Tracking
+Used methods: Mil, KCF, CSRT 
+And used HSHsTrack (Hand Simple on base Histogram Tracking) 
+
+Algorithm:
+- Converts the current frame to HSV color space
+- Calculates the back projection of the histogram onto the current frame
+- Applies a binarization threshold to highlight an object
+- Applies Gaussian blur to reduce noise
+- Performs morphological operations
+- Finds contours in a binary mask
+- Selects the largest outline
+- Returns the coordinates of the bounding box 
+
+| CSRT | KCF  | MIL | HSHsTrack | 
+| ------------- |:-------------:| :-------------:|:-------------:|
+| ~ 13 FPS | ~ 30-32 FPS | ~ 10-12 FPS| ~ 30 FPS| 
+
+***Result HSHsTack***
+
+https://github.com/StrongerProgrammer7/ADWM/assets/71569051/43758667-6011-4cdd-a422-6ba32eaf078d
+
 ### Detectors
 ***Theme detect hand on real-time***
 - Used Haara + trained NN (classification hand, studied on the 11k hand) 
 - Used Single Shot Detector (trained and used with Matlab2023b with package - resnet50, image Labeler, webcam)
 - Used MediaPipe
-- 
+
 | Detector | Time train  | count possitive | count negative | Total time |
 | ------------- |:-------------:| :-------------:|:-------------:| :-------------:|
 | Haara (with program for trained -bad ) |-|-|-| ~ 48 hours |
