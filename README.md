@@ -1,5 +1,6 @@
 <sub>** This work is being done as part of the Course Algorithms of digital multimedia processing ** </sub>
-<sub> ** author Abuykoz Z.M. ** </sub>
+
+<sub> ** author Abuykov Z.M. ** </sub>
 
 # ADWM (Algorithms of digital multimedia processing)
 ## Content:
