@@ -64,6 +64,10 @@ Done work:
 3. Apply EasyOCR and Tesseract for recognation text on images
 4. Record result EasyOcr and Tesseract .txt
 
+### Work Khaara 
+Done work: detector count face on the movie 
+
+
 ### Contours 
 ***Theme: automobile (logo)***
 
@@ -84,3 +88,30 @@ In total, 1 algorithm processed 27 images.
 | Scharr      | 235,590115070343 | Canny & Scharr | 6270.624080584491 |
 | Prewitt | 237,085066713 | Prewitt & Scharr | 7995.047592230903 |
 | Kirsch | 1122,984922 | 
+
+### Detectors
+***Theme detect hand on real-time***
+
+Used Haara + trained NN (classification hand, studied on the 11k hand) 
+Used Single Shot Detector (trained and used with Matlab2023b with package - resnet50, image Labeler, webcam)
+Used MediaPipe 
+| Detector | Time train  | count possitive | count negative | Total time |
+| ------------- |:-------------:| :-------------:|:-------------:| :-------------:|
+| Haara (with program for trained -bad ) |-|-|-| ~ 48 hours |
+| 1. max false positives 0.5 & stage 8 | ~ 8 hours | 8860 | 2001 | - |
+| 2. max false positives 0.5 & stage 10  - better | ~ 7hours 41min | 3367 | 800 | - |
+| 3. max false positives 0.4 & stage 16| ~ 8 hours | 3322 | 1000| -|
+| 4. max false positives 0.2 & stage 16 | > 2d | 11000| 3000| not finish(canel)
+| Haara (with Matlab trained - better) all stage 16 | -|-|-|40 hours |
+| 1.| ~ 6 hours | 182 | 2001 | - |
+| 2.| ~ 5 hours | 1000| 920 | - |
+| 3.| ~ 6 hours | 262 | 920| - |
+| 4.| ~ 6 hours | 1790 | 920 | - |
+| 5. - better | ~ 16 hours | 1792 | 3186 | - |
+| NN for Haara | 
+| Single Shot Detector |
+
+***Better result for every detector***
+| Haara+NN | SSD  | MediaPipe |
+| ------------- |:-------------:| :-------------:|
+|-| -| -|
