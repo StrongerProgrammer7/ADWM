@@ -1,4 +1,5 @@
-** This work is being done as part of the Course Algorithms of digital multimedia processing author Abuykoz Z.M.*
+###### ** This work is being done as part of the Course Algorithms of digital multimedia processing **
+###### ** author Abuykoz Z.M. **
 
 # ADWM (Algorithms of digital multimedia processing)
 ## Content:
