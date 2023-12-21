@@ -84,7 +84,6 @@ Done work:
 ### Work Khaara 
 Done work: detector count face on the movie 
 
-
 ### Contours 
 ***Theme: automobile (logo)***
 
@@ -94,8 +93,11 @@ This using Canny's algorithm (description up) and apply different operator and b
 | <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/cba11dcb-2dd1-4a23-b335-75a9a4dc03f0" alt="" width="300"/>| <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/355b655d-1b6f-4390-9da4-a3da4ea4b37b" alt="" width="300"/> | <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/4d35e841-d0d5-4d55-ac57-5c29a3bd35c5" alt="" width="300"/> | <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/812c235c-7dfa-4281-acaa-7e40f17d8ce4" alt="" width="300"/> | <img src="https://github.com/StrongerProgrammer7/ADWM/assets/71569051/c0543d81-caee-4e0b-92bc-b615b9d3aa32" alt="" width="300"/> |
 
 Also a comparison of the work of different operators.
+
 Comparison of algorithms: on 3 images (small number of logos, large number of logos and cars on the street)
+
 All 3 images were then processed with different borders (10, 100; 100, 200; 150, 230) and kernels (3x3.5x5, 7x7)
+
 In total, 1 algorithm processed 27 images.
 
 | Algorithm | Speed work(sec)  | Algorithm | MSE (the less, the more differences) |
@@ -110,7 +112,7 @@ In total, 1 algorithm processed 27 images.
 Used methods: Mil, KCF, CSRT 
 And used HSHsTrack (Hand Simple on base Histogram Tracking) 
 
-Algorithm:
+Algorithm HSHsTrack:
 - Converts the current frame to HSV color space
 - Calculates the back projection of the histogram onto the current frame
 - Applies a binarization threshold to highlight an object
@@ -133,6 +135,9 @@ https://github.com/StrongerProgrammer7/ADWM/assets/71569051/43758667-6011-4cdd-a
 - Used Haara + trained NN (classification hand, studied on the 11k hand) 
 - Used Single Shot Detector (trained and used with Matlab2023b with package - resnet50, image Labeler, webcam)
 - Used MediaPipe
+
+Table trained model: 
+
 
 | Detector | Time train  | count possitive | count negative | Total time |
 | ------------- |:-------------:| :-------------:|:-------------:| :-------------:|
